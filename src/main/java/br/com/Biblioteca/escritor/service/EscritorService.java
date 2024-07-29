@@ -26,10 +26,10 @@ public class EscritorService {
     }
 
     public void deletarEscritor(Integer idEscritor){
-        escritorRepository.deleteAllById(idEscritor);
+        escritorRepository.deleteById(idEscritor);
     }
 
     public static Optional<Escritor> buscarEscritor(Integer idEscritor){
-        return escritorRepository.findAllById(idEscritor);
+        return escritorRepository.findById(idEscritor);
     }
 }

@@ -42,9 +42,9 @@ public class EscritorResource {
         escritorService.deletarEscritor(idEscritor);
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    @PutMapping
+    @PutMapping("/{idEscritor}")
     public ResponseEntity<Escritor> atualizarEscritor(@PathVariable Integer idEscritor, @RequestBody Escritor escritor){
-        if (EscritorService.buscarEscritor(idEscritor) isPresent()){
+        if (!escritorService.buscarEscritor(idEscritor).isPresent()){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         escritor.setId(idEscritor);
